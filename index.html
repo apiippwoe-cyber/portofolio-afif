@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Web - Afif Al Qifary</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <body>
+
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <h2>Halo! </h2>
+            <p>Selamat Datang di Portofolio ku</p>
+            <button id="btn-masuk" class="btn-glow">Masuk ke Portofolio</button>
+        </div>
+    </div>
+
+    <header class="header">
+
+    
+    <header class="header">
+        <div class="container fade-in">
+            <h1>Afif Al Qifary</h1>
+            <p class="subtitle">Mahasiswa IT & Calon IT Assistant</p>
+        </div>
+    </header>
+    <div class="cursor-glow"></div>
+
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="videos/video-skill.mp4" type="video/mp4">
+    </video>
+    </video>
+    <div class="video-overlay"></div>
+    </header>
+
+  <section class="about container fade-in-delay">
+        <img src="images/foto-profil.jpg" alt="Foto Profil Afif" class="profile-img">
+        <h2>Tentang Saya</h2>
+        <p>Saya adalah mahasiswa IT yang fokus pada IT Support dan Web Development dasar. Terbiasa melakukan troubleshooting perangkat, instalasi software, serta membangun website sederhana menggunakan HTML, CSS, dan JavaScript. Saat ini saya aktif mengembangkan proyek pribadi untuk memperkuat kemampuan teknis dan siap berkontribusi dalam lingkungan kerja nyata.</p>
+        
+        <div class="personal-info">
+            <div class="info-item">
+                <i class="fas fa-university"></i>
+                <span><strong>Asal Kampus:</strong> Universitas Bina Sarana Informatika</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-award"></i>
+                <span><strong>IPK:</strong> 3.94 / 4.00</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span><strong>Alamat:</strong> Perumahan Ferari Bulak Indah A3/20 RT06/02 Jl. Abdul Gani 1, Kalibaru, Kec. Cilodong, Kota Depok, Jawa Barat</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills container fade-in-delay">
+        <h2>Keahlian IT</h2>
+        <div class="skill-tags">
+            <span class="skill-badge">HTML & CSS</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">UI/UX Design</span>
+            <span class="skill-badge">Troubleshooting</span>
+        </div>
+    </section>
+
+ <section id="sertifikat" class="sertifikat-section">
+        <h2>Sertifikat Saya</h2>
+        <div class="sertifikat-grid">
+            
+            <div class="sertifikat-card" onclick="bukaModal('images/sertif1.jpg', 'Sertifikat IT Support Dasar', '15 Agustus 2023', 'Sertifikat resmi dari Cisco Networking Academy melalui Universitas Bina Sarana Informatika. Membuktikan pemahaman komprehensif mengenai dasar-dasar jaringan komputer, arsitektur jaringan, protokol, serta konfigurasi dasar perangkat jaringan (Routing & Switching).')">
+                <img src="images/sertif1.jpg" alt="Sertifikat 1">
+                <h3>CCNA: Intro to Networks</h3>
+                <p>Klik untuk melihat detail</p>
+            </div>
+
+<div class="sertifikat-card" onclick="bukaModal('images/sertif2.jpg', 'PCAP: Programming Essentials in Python', '19 Juli 2024', 'Sertifikat kelulusan resmi dari Cisco Networking Academy yang membuktikan kompetensi dalam dasar-dasar pemrograman Python, meliputi pemahaman sintaksis, logika pemrograman, algoritma, serta struktur data.')">
+                <img src="images/sertif2.jpg" alt="Sertifikat Python Cisco">
+                <h3>PCAP: Python Essentials</h3>
+                <p>Klik untuk melihat detail</p>
+            </div>
+
+            <div class="sertifikat-card" onclick="bukaModal('images/sertif3.jpg', 'Workshop Pengolahan Data & Machine Learning', '3 Desember 2025', 'Sertifikat partisipasi dari Fakultas Teknik & Informatika Universitas Bina Sarana Informatika. Membuktikan keaktifan dalam mempelajari teknik pengolahan data dan penerapan algoritma Machine Learning untuk kebutuhan riset serta industri.')">
+                <img src="images/sertif3.jpg" alt="Sertifikat Workshop Machine Learning">
+                <h3>Data & Machine Learning</h3>
+                <p>Klik untuk melihat detail</p>
+            </div>
+    </section>
+
+    <div id="sertifikat-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="tutupModal()">&times;</span>
+            <img id="modal-img" src="" alt="Detail Sertifikat">
+            <h3 id="modal-title">Judul Sertifikat</h3>
+            <p class="modal-date" id="modal-date">Tanggal</p>
+            <p id="modal-desc">Deskripsi rincian sertifikat akan muncul di sini.</p>
+        </div>
+    </div>
+    </section>
+
+    <section class="video-showcase container fade-in-delay">
+        <h2>Keterampilan Multimedia</h2>
+        Background yang bergerak adalah salah satu karya saya di bidang Multimedia pada aplikasi Adobe After Effect.
+    </section>
+
+    <section class="contact container fade-in-delay">
+        <h2>Hubungi Saya</h2>
+        <p>Tertarik untuk berdiskusi lebih lanjut atau menjadwalkan wawancara? Jangan ragu untuk menghubungi saya melalui:</p>
+        
+       <div class="contact-links">
+            <a href="mailto:apiippwoe@gmail.com" class="btn-contact"><i class="fas fa-envelope"></i> apiippwoe@gmail.com</a>
+            <a href="https://wa.me/6289505234000" class="btn-contact" target="_blank"><i class="fab fa-whatsapp"></i> +6289505234000</a>
+            <a href="https://linkedin.com/in/afifalqifary" class="btn-contact" target="_blank"><i class="fab fa-linkedin"></i> afifalqifary</a>
+            <a href="https://github.com/apiippwoe-cyber" class="btn-contact" target="_blank"><i class="fab fa-github"></i> apiippwoe-cyber</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Afif Al Qifary. Dibuat dengan penuh semangat.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+<body>
+    <div class="cursor-glow"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+</html>

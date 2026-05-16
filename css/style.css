@@ -1,0 +1,662 @@
+/* Pengaturan Dasar & Font Modern */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    /* SEMBUNYIKAN KURSOR BAWAAN AGAR CUSTOM KURSOR JELAS */
+    
+}
+
+/* 1. Warna Latar Belakang Gelap Utama */
+body {
+    color: #e0e0e0; 
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative; /* Menarik konten web ke depan */
+    z-index: 2; /* Angka 2 memastikan seluruh teks/kotak selalu berada di ATAS video latar */
+}
+
+/* --- DESAIN CAHAYA KURSOR --- */
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(24, 188, 156, 0.3); /* Cahaya Toska semi-transparan */
+    border-radius: 50%;
+    pointer-events: none; /* Klik tidak terhalang */
+    filter: blur(100px); /* Efek blur agar seperti cahaya */
+    z-index: 9999; /* Selalu di atas elemen lain */
+    transition: transform 0.1s ease-out; /* Pergerakan mulus */
+}
+
+/* --- 1. AREA HEADER (NAMA & JURUSAN) --- */
+.header {
+    background: transparent; 
+    color: white;
+    text-align: center;
+    padding: 80px 0 20px 0; /* Jarak atas bawah disesuaikan agar tidak tumpang tindih */
+    border-bottom: none; /* Garis bawah dihapus agar lebih menyatu dengan video */
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes gradientBergerak {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #ffffff;
+    /* Efek cahaya ganda: bayangan gelap pekat + cahaya toska memancar */
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 1), 
+                 0 0 20px rgba(24, 188, 156, 0.8), 
+                 0 0 40px rgba(24, 188, 156, 0.5); 
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #ffffff; /* Warna teks diubah menjadi putih bersih */
+    background-color: transparent; /* Background putih DIHILANGKAN */
+    display: inline-block;
+    padding: 5px 10px;
+    font-weight: bold;
+    box-shadow: none; /* Bayangan kotak putih dihapus */
+    /* Efek cahaya yang selaras dengan nama di atasnya */
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 1), 
+                 0 0 15px rgba(24, 188, 156, 0.8);
+}
+
+/* Judul Section (H2) dengan Glow */
+h2 {
+    color: #ffffff;
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 30px;
+    /* GLOW TEKS UNTUK SETIAP JUDUL SEKSI */
+    text-shadow: 0 0 10px rgba(24, 188, 156, 0.7);
+}
+
+/* --- 2. KOTAK TENTANG SAYA --- */
+.about {
+    text-align: center;
+    margin-top: 80px; /* MENDORONG KOTAK KE BAWAH agar tidak menutupi nama */
+    background: rgba(30, 30, 30, 0.6); 
+    backdrop-filter: blur(10px); 
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    position: relative;
+    z-index: 2;
+}
+
+.about h2 {
+    color: #18bc9c; /* Diubah menjadi toska agar menyala di latar gelap */
+    margin-bottom: 15px;
+}
+
+.about p {
+    color: #e0e0e0; /* Memastikan teks paragraf berwarna terang agar mudah dibaca */
+}
+
+/* --- DESAIN KOTAK INFO KAMPUS & IPK --- */
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+    background-color: rgba(30, 30, 30, 0.6); /* Kotak abu-abu transparan elegan */
+    padding: 20px 25px;
+    border-radius: 8px;
+    border-left: 5px solid #18bc9c; /* Garis aksen toska di sebelah kiri */
+    width: fit-content; /* Lebar kotak menyesuaikan panjang teks */
+    margin-left: auto;
+    margin-right: auto; /* Membuat kotak berada persis di tengah */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #e0e0e0;
+    font-size: 1.05em;
+    text-align: left;
+}
+
+.info-item i {
+    color: #18bc9c;
+    font-size: 1.2em;
+    text-shadow: 0 0 10px rgba(24, 188, 156, 0.5); /* Efek cahaya tipis pada ikon */
+}
+
+.info-item strong {
+    color: #ffffff; /* Membedakan judul label agar lebih terang */
+}
+
+/* EFEK GLOW SAAT KOTAK TENTANG SAYA DISENTUH MOUSE */
+.about:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(24, 188, 156, 0.3);
+    border: 1px solid #18bc9c;
+}
+
+/* --- 3. FOTO PROFIL --- */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #18bc9c;
+    margin-top: -110px; /* Menarik foto tepat ke atas garis tepi kotak kaca */
+    margin-bottom: 20px;
+    background-color: #2c3e50;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.about h2 {
+    color: #18bc9c; 
+    margin-bottom: 15px;
+}
+
+.about p {
+    color: #e0e0e0; 
+}
+
+/* Desain Keahlian (Skills) */
+.skills {
+    margin-top: 40px;
+}
+
+.skill-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.skill-badge {
+    background-color: #252525; 
+    color: #18bc9c;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: 1px solid #18bc9c;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    /* Pastikan custom kursor masih aktif */
+}
+
+/* EFEK GLOW SAAT SKILL DISENTUH MOUSE */
+.skill-badge:hover {
+    transform: scale(1.1) rotate(3deg);
+    background-color: #18bc9c;
+    color: #121212; 
+    box-shadow: 0 0 20px rgba(24, 188, 156, 0.6); 
+}
+
+/* Desain Proyek (Grid/Kartu) */
+.projects {
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid transparent;
+     /* Pastikan custom kursor masih aktif */
+}
+
+/* EFEK GLOW SAAT KARTU PROYEK DISENTUH MOUSE */
+.project-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(24, 188, 156, 0.4);
+    border: 1px solid #18bc9c;
+}
+
+.project-card h3 {
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-shadow: 0 0 5px rgba(24, 188, 156, 0.6);
+}
+
+.project-card p {
+    color: #b3b3b3; 
+}
+
+/* Desain Bagian Video Multimedia */
+.video-showcase {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.video-showcase p {
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+.video-wrapper {
+    background: #1a1a24; 
+    padding: 18px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    width: 100%;
+    max-width: 850px;
+    border-bottom: 6px solid #18bc9c;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* EFEK GLOW SAAT BINGKAI VIDEO DISENTUH MOUSE */
+.video-wrapper:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(24, 188, 156, 0.3); 
+}
+
+.portfolio-video {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Desain Bagian Kontak */
+.contact {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn-contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #18bc9c;
+    border: 2px solid #18bc9c;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+     /* Pastikan custom kursor masih aktif */
+}
+
+/* EFEK GLOW SAAT TOMBOL KONTAK DISENTUH MOUSE */
+.btn-contact:hover {
+    background-color: #18bc9c;
+    color: #121212; 
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(24, 188, 156, 0.5); 
+}
+
+/* Desain Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #050505; 
+    color: #777; 
+    border-top: 1px solid #222;
+}
+
+/* Animasi Fade In */
+@keyframes munculDariBawah {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: munculDariBawah 1s ease forwards; }
+.fade-in-delay {
+    opacity: 0;
+    animation: munculDariBawah 1s ease 0.5s forwards;
+}
+
+/* --- 1. EFEK CAHAYA KURSOR (DITINGKATKAN) --- */
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(24, 188, 156, 0.7); /* Warna toska pekat */
+    border-radius: 50%;
+    pointer-events: none; /* Wajib agar klik menembus cahaya */
+    filter: blur(40px);
+    /* Angka ini harus PALING TINGGI dari semuanya agar muncul di Layar Selamat Datang */
+    z-index: 10001; 
+    transition: transform 0.1s ease-out;
+}
+
+/* --- 2. LAYAR SELAMAT DATANG (DIBAWAH CAHAYA) --- */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #1a252f; /* Background gelap solid */
+    /* Angka diturunkan sedikit agar berada DI BAWAH cahaya kursor */
+    z-index: 10000; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* --- 3. KONTEN (TETAP DI DEPAN CAHAYA) --- */
+.welcome-content {
+    text-align: center;
+    /* Memberikan posisi relatif agar z-index konten ini bekerja di dalam flex */
+    position: relative; 
+    /* Angka ini harus lebih tinggi dari cahaya kursor agar teks/tombol tidak buram */
+    z-index: 10002; 
+    animation: munculDariBawah 1s ease forwards;
+}
+
+/* Kotak Informasi Pribadi */
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 25px auto 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Diubah dari warna putih menjadi hitam transparan */
+    padding: 20px 25px;
+    border-radius: 8px;
+    border-left: 5px solid #18bc9c;
+    max-width: 650px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #e0e0e0; /* Diubah agar teks selaras dengan warna gelap */
+    font-size: 0.95em;
+}
+
+.info-item strong {
+    color: #ffffff; /* Judul label diubah menjadi putih bersih */
+}
+
+.info-item i {
+    color: #18bc9c;
+    margin-top: 4px;
+    width: 20px;
+}
+
+/* --- DESAIN VIDEO BACKGROUND & OVERLAY --- */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Memastikan video memenuhi seluruh layar tanpa merusak rasio */
+    z-index: -2; /* Meletakkan video di lapisan paling bawah (di belakang) */
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(13, 13, 13, 0.85); /* Lapisan hitam transparan agar teks tetap kontras */
+    z-index: -1; /* Berada di atas video, tapi di bawah konten web */
+}
+
+/* --- TAMPILAN SELAMAT DATANG (SPLASH SCREEN) --- */
+#welcome-screen {
+    position: fixed; /* Membuat layar diam di tempat menutupi seluruh web */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #1a252f; /* Warna gelap senada dengan tema */
+    z-index: 9999; /* Angka sangat besar agar selalu berada di lapisan PALING ATAS */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: opacity 0.8s ease, visibility 0.8s ease; /* Animasi menghilang yang halus */
+}
+
+.welcome-content {
+    text-align: center;
+    animation: munculDariBawah 1s ease forwards;
+}
+
+.welcome-content h2 {
+    font-size: 3.5em;
+    color: #18bc9c; /* Aksen toska */
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(24, 188, 156, 0.5); /* Efek cahaya (glow) */
+}
+
+.welcome-content p {
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+/* --- DESAIN TOMBOL MASUK --- */
+.btn-glow {
+    margin-top: 30px;
+    padding: 12px 35px;
+    font-size: 1.1em;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #18bc9c; /* Garis tepi toska */
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Efek transisi halus */
+    box-shadow: 0 0 15px rgba(24, 188, 156, 0.4); /* Efek cahaya neon */
+    font-family: inherit;
+    letter-spacing: 1px;
+}
+
+/* Efek ketika kursor mouse menyorot tombol */
+.btn-glow:hover {
+    background-color: #18bc9c;
+    color: #1a252f;
+    font-weight: bold;
+    box-shadow: 0 0 30px rgba(24, 188, 156, 0.9);
+    transform: scale(1.05); /* Membesar sedikit saat disorot */
+}
+
+/* Kelas ini akan ditambahkan oleh JavaScript untuk menyembunyikan layar */
+.sembunyi {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* --- BAGIAN KARTU SERTIFIKAT --- */
+.sertifikat-section {
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.sertifikat-section h2 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-shadow: 0 0 15px rgba(24, 188, 156, 0.8);
+}
+
+.sertifikat-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sertifikat-card {
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 15px;
+    width: 280px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sertifikat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(24, 188, 156, 0.4);
+    border-color: #18bc9c;
+}
+
+.sertifikat-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.sertifikat-card h3 {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.sertifikat-card p {
+    color: #18bc9c;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* --- DESAIN POP-UP SERTIFIKAT (MODAL) TERBARU --- */
+
+/* 1. Latar belakang transparan di sekitar Pop-up */
+.modal {
+    display: none; /* Disembunyikan secara default */
+    position: fixed;
+    z-index: 10005; /* Angka sangat tinggi agar tampil di lapisan PALING DEPAN */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Latar belakang gelap transparan (bukan hitam pekat) */
+    background-color: rgba(20, 20, 20, 0.9); 
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px); /* Efek kaca buram (Glassmorphism) */
+}
+
+/* 2. Kotak Konten Sertifikat */
+.modal-content {
+    /* Latar belakang kotak dibuat sama dengan kotak 'Tentang Saya' agar selaras */
+    background: rgba(30, 30, 30, 0.6); 
+    backdrop-filter: blur(10px); /* Efek kaca buram di dalam kotak */
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 700px; /* Ukuran kotak pop-up */
+    width: 90%;
+    text-align: center;
+    position: relative;
+    /* --- PENTING: EFEK CAHAYA (GLOW) --- */
+    border: 2px solid #18bc9c; /* Garis tepi toska */
+    box-shadow: 0 0 40px rgba(24, 188, 156, 0.6); /* Pendaran cahaya toska */
+    color: white;
+    animation: munculPopUp 0.4s ease;
+}
+
+/* 3. Gambar Sertifikat di dalam kotak */
+.modal-content img {
+    width: 100%;
+    max-height: 400px; /* Batas tinggi gambar agar pop-up tidak terlalu panjang */
+    object-fit: contain; /* Memastikan gambar sertifikat utuh, tidak terpotong */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: transparent; /* Pastikan background gambar transparan */
+}
+
+/* 4. Tombol Tutup (Close Button) */
+.close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #e74c3c;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 25px;
+    line-height: 35px;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    background: #c0392b;
+    transform: scale(1.1);
+}
+
+/* 5. Teks di dalam Modal (Pastikan warna teks terang) */
+#modal-title {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#modal-date {
+    color: #18bc9c; /* Tanggal menggunakan warna aksen toska */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#modal-desc {
+    line-height: 1.6;
+    color: #e0e0e0; /* Deskripsi menggunakan warna abu-abu terang */
+}
+
+/* Animasi Pop-up Muncul */
+@keyframes munculPopUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
